@@ -1,0 +1,30 @@
+{
+	"manifest_version": 3,
+	"name": "JSON Formatter",
+	"version": "0.01",
+	"description": "Instantly transform raw JSON into a beautifully structured and color-coded format.",
+	"permissions": ["activeTab"],
+	"content_scripts": [{
+		"matches": ["<all_urls>"],
+		"js": ["content.js"],
+		"css": ["styles.css"]
+	}],
+	"action": {
+		"default_icon": {
+			"16": "icons/icon16.png",
+			"48": "icons/icon48.png",
+			"128": "icons/icon128.png"
+		}
+	},
+	"icons": {
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
+	},
+	"web_accessible_resources": [
+		{
+			"resources": ["fonts/MonoLisaVariableNormal.woff2", "fonts/MonoLisaVariableItalic.woff2"],
+			"matches": ["<all_urls>"]
+		}
+	]
+}

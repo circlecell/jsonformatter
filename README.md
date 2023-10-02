@@ -16,7 +16,7 @@ When you encounter raw JSON data, it's often just an overwhelming wall of text. 
 
 🔄 Toggle with Ease: Whether you need the original data or the formatted version, effortlessly switch between raw and parsed views with a simple click.
 
-📤 Export to jsonlint.com: Want to edit your JSON? Easily export it to jsonlint.com and make your modifications there. Example: [https://jsonlint.com/?url=http://localhost:3001/datasets/sample.json](https://jsonlint.com/?url=http://localhost:3001/datasets/sample.json)
+📤 Export to jsonlint.com: Want to edit your JSON? Easily export it to jsonlint.com and make your modifications there. Example: [https://jsonlint.com/?url=https://jsonlint.com/datasets/sample.json](https://jsonlint.com/?url=https://jsonlint.com/datasets/sample.json)
 
 🛡️ Safe and Respectful: We prioritize your privacy. Our extension operates client-side, ensuring your data never leaves your browser. No tracking, no data collection, just pure JSON magic.
 

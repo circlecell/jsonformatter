@@ -5,7 +5,7 @@
 	"description": "Instantly transform raw JSON into a beautifully structured and color-coded format.",
 	"permissions": ["activeTab"],
 	"content_scripts": [{
-		"matches": ["<all_urls>"],
+		"matches": ["*://*.json*"],
 		"js": ["content.js"],
 		"css": ["styles.css"]
 	}],

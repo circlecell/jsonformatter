@@ -25,3 +25,10 @@ Speed Up Your Development Workflow
 For developers, every second counts. Why squint at unformatted JSON when you can view, interact, and even edit it seamlessly? With JSON Formatter, you're not just reading data; you're experiencing it. Whether you're debugging, analyzing, or just curious, our tool is designed to speed up your workflow.
 
 Install JSON Formatter today and transform chaos into clarity!
+
+## Getting Started
+
+1. Run `npm install` to install the required dependencies.
+2. Run `npm run dev` to watch the file changes.
+3. Load `dist` as the unpacked extension during the development.
+4. Run `npm run build` to build the file for distribution.

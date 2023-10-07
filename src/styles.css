@@ -1,4 +1,4 @@
-body[data-isjson="yes"] {
+#jsonformatter {
     color: #2b2b2b;
     font-display: swap;
     font-family: 'MonoLisa', monospace;
@@ -10,104 +10,104 @@ body[data-view="raw"] {
     margin-top: 50px;
 }
 
-body[data-isjson="yes"] > div {
+#jsonformatter > div {
     padding: 5px 10px;
 }
 
-body[data-isjson="yes"] span, .string {
+#jsonformatter span, #jsonformatter .string {
     display: inline-block;
 }
 
-.k {
+#jsonformatter .k {
     color: #b16b2a;
 }
 
-.string {
+#jsonformatter .string {
     color: green;
 }
 
-.number {
+#jsonformatter .number {
     color: darkblue;
 }
 
-.boolean.false {
+#jsonformatter .boolean.false {
     color: red;
 }
-.boolean.true {
+#jsonformatter .boolean.true {
     color: green;
 }
 
-.null {
+#jsonformatter .null {
     color: magenta;
 }
 
-.collapsible {
+#jsonformatter .collapsible {
     cursor: pointer;
     display: inline-block;
 }
 
-.content {
+#jsonformatter .content {
     display: block;
     margin-left: 21px;
     padding-left: 15px;
     border-left: 1px dotted #dedede;
 }
 
-.content > div {
+#jsonformatter .content > div {
     line-height: 18px;
 }
 
-.ellipsis {
+#jsonformatter .ellipsis {
     display: none;
 }
 
-.arrow-right .ellipsis {
+#jsonformatter .arrow-right .ellipsis {
     display: inline-block;
 }
 
-.arrow-right svg, .arrow-down svg {
+#jsonformatter .arrow-right svg, #jsonformatter .arrow-down svg {
     float: left;
 }
 
-.arrow-right path, .arrow-down path {
+#jsonformatter .arrow-right path, #jsonformatter .arrow-down path {
     fill: #e1e1e1;
 }
 
-.placeholder-arrow {
+#jsonformatter .placeholder-arrow {
     display: inline-block;
     width: 15px;
     height: 15px;
 }
 
-.arrow-down svg {
+#jsonformatter .arrow-down svg {
     transform: rotate(90deg);
 }
 
-.kvp {
+#jsonformatter .kvp {
     display: block;
 }
 
-.kvr {
+#jsonformatter .kvr {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
 }
 
-.k, .c {
+#jsonformatter .k, #jsonformatter .c {
     white-space: nowrap;
 }
 
-.c {
+#jsonformatter .c {
     margin-right: 5px;
 }
 
-.v {
+#jsonformatter .v {
     flex-grow: 1;
     margin-left: 0;
     word-wrap: break-word;
 }
 
-body[data-isjson="yes"] button {
+#jsonformatter button {
     border-radius: 3px;
     padding: 4px 8px 3px;
     font-weight: 600;
@@ -122,7 +122,7 @@ body[data-isjson="yes"] button {
     width: 140px;
 }
 
-body[data-isjson="yes"] button::before {
+#jsonformatter button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -134,57 +134,57 @@ body[data-isjson="yes"] button::before {
     justify-content: center;
 }
 
-body[data-view="formatted"] button {
+#jsonformatter button {
     background-color: #4CAF50;
     color: white;
 }
 
-body[data-view="formatted"] button::before {
+#jsonformatter button::before {
     content: "Formatted JSON";
 }
 
-body[data-view="raw"] button {
+#jsonformatter[data-view="raw"] button {
     background-color: #ededed;
     color: #6a6a6a;
 }
 
-body[data-view="raw"] button::before {
+#jsonformatter[data-view="raw"] button::before {
     content: "Raw JSON";
 }
 
-body[data-isjson="yes"] > div:nth-child(1) > span.collapsible > span.opening, span.closing {
+#jsonformatter > div:nth-child(1) > span.collapsible > span.opening, span.closing {
     display: inline-block;
 }
 
-span.closing {
+#jsonformatter span.closing {
     padding-left: 19px;
 }
-span.empty {
+#jsonformatter span.empty {
 	padding-left: 17px;
 }
 
-body[data-isjson="yes"] .content[style*="display: none"] + .closing {
+#jsonformatter .content[style*="display: none"] + .closing {
     padding-left: 0;
 }
 
-body[data-isjson="yes"] .content[style*="display: none"] + .closing:before {
+#jsonformatter .content[style*="display: none"] + .closing:before {
     content: '...';
     position: relative;
 }
 
-.item-count::before {
+#jsonformatter .item-count::before {
     content: "// " attr(count);
     color: #888;
     font-style: italic;
     display: none;
 }
 
-body[data-isjson="yes"] .content[style*="display: none"] + .closing + .item-count::before {
+#jsonformatter .content[style*="display: none"] + .closing + .item-count::before {
     display: inline;
     padding-left: 5px;
 }
 
-.color-preview {
+#jsonformatter .color-preview {
     display: inline-block;
 	border-radius: 15px;
     width: 10px;
@@ -194,7 +194,7 @@ body[data-isjson="yes"] .content[style*="display: none"] + .closing + .item-coun
     vertical-align: middle;
 }
 
-.timestamp::after {
+#jsonformatter .timestamp::after {
     content: " /* " attr(data-timestamp-comment) " */ ";
     color: #888;
     font-style: italic;
@@ -202,33 +202,33 @@ body[data-isjson="yes"] .content[style*="display: none"] + .closing + .item-coun
 	margin-right: 3px;
 }
 
-.jsonLintIcon {
+#jsonformatter .jsonLintIcon {
     cursor: pointer;
     position: fixed;
-    right: 165px; /* Adjust this value based on the width of the existing button and desired spacing */
+    right: 165px;
     top: 13px;
-    fill: #6b6b6b; /* Color of the icon when in formatted view */
+    fill: #6b6b6b;
     transition: fill 0.3s;
 	border: 1px solid #cdcdcd;
     border-radius: 3px;
     padding: 3px 4px;
 }
 
-body[data-view="raw"] .jsonLintIcon {
-    fill: #6a6a6a; /* Color of the icon when in raw view */
+#jsonformatter[data-view="raw"] .jsonLintIcon {
+    fill: #6a6a6a;
 }
 
-.jsonLintIcon:hover {
-    fill: #3a3a3a; /* Darker shade for hover effect */
+#jsonformatter .jsonLintIcon:hover {
+    fill: #3a3a3a;
 }
 
-.image-wrapper {
+#jsonformatter .image-wrapper {
     position: relative;
     display: inline-block;
     cursor: pointer;
 }
 
-.image-wrapper img {
+#jsonformatter .image-wrapper img {
     position: absolute;
     top: 100%;
     left: 50%;
@@ -240,8 +240,8 @@ body[data-view="raw"] .jsonLintIcon {
     border-radius: 4px;
     z-index: 10;
     opacity: 0;
-    pointer-events: none; /* Makes sure it doesn't interfere with other interactions */
-    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 
     background-color: #dadada;
     background-image:
@@ -251,55 +251,55 @@ body[data-view="raw"] .jsonLintIcon {
     background-position: 0 0, 10px 10px;
 }
 
-.image-wrapper:hover img {
-    opacity: 1; /* Show on hover */
+#jsonformatter .image-wrapper:hover img {
+    opacity: 1;
 }
 
 @media (prefers-color-scheme: dark) {
-    body[data-isjson="yes"] {
+    #jsonformatter {
         color: #e1e1e1;
         background-color: #2b2b2b;
     }
 
-    .k {
+    #jsonformatter .k {
         color: #ffb86c;
     }
 
-    .string {
+    #jsonformatter .string {
         color: #50fa7b;
     }
 
-    .number {
+    #jsonformatter .number {
         color: #8be9fd;
     }
 
-    .boolean {
+    #jsonformatter .boolean {
         color: #ff79c6;
     }
 
-    .null {
+    #jsonformatter .null {
         color: #bd93f9;
     }
 
-    .content {
+    #jsonformatter .content {
         border-left: 1px dotted #555;
     }
 
-    .arrow-right path, .arrow-down path {
+    #jsonformatter .arrow-right path, #jsonformatter .arrow-down path {
         fill: #888;
     }
 
-    body[data-view="formatted"] button {
+    #jsonformatter[data-view="formatted"] button {
         background-color: #6272a4;
         color: #f8f8f2;
     }
 
-    body[data-view="raw"] button {
+    #jsonformatter[data-view="raw"] button {
         background-color: #44475a;
         color: #f8f8f2;
     }
 
-    .item-count::before {
+    #jsonformatter .item-count::before {
         color: #666;
     }
 }

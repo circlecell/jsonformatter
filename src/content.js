@@ -116,6 +116,7 @@ function traverseJSON(obj, isNested = false) {
 
 if (isJSON(document.body.innerText)) {
     const rawJSON = document.body.innerText;
+	document.body.id = 'jsonformatter'
 	document.body.setAttribute('data-isjson', 'yes');
     // Dynamically inject the font-face rules
     const fontStyles = `

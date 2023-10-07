@@ -1,4 +1,8 @@
 # misc
-.DS_Store
+**/.DS_Store
 *.pem
 *.zip
+node_modules
+.cache
+package-lock.json
+dist/

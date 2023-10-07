@@ -1,0 +1,328 @@
+body[data-view='raw'] {
+	margin-top: 50px;
+}
+
+#jsonformatter {
+	color: #2b2b2b;
+	font-size: 11.5px;
+	line-height: 16px;
+	font-family: 'MonoLisa', monospace;
+	font-display: swap;
+
+	> div {
+		padding: 5px 10px;
+	}
+
+	span,
+	.string {
+		display: inline-block;
+	}
+
+	.k {
+		color: #b16b2a;
+	}
+
+	.string {
+		color: green;
+	}
+
+	.number {
+		color: darkblue;
+	}
+
+	.boolean.false {
+		color: red;
+	}
+	.boolean.true {
+		color: green;
+	}
+
+	.null {
+		color: magenta;
+	}
+
+	.collapsible {
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	.content {
+		display: block;
+		margin-left: 21px;
+		padding-left: 15px;
+		border-left: 1px dotted #dedede;
+	}
+
+	.content > div {
+		line-height: 18px;
+	}
+
+	.ellipsis {
+		display: none;
+	}
+
+	.arrow-right .ellipsis {
+		display: inline-block;
+	}
+
+	.arrow-right svg,
+	.arrow-down svg {
+		float: left;
+	}
+
+	.arrow-right path,
+	.arrow-down path {
+		fill: #e1e1e1;
+	}
+
+	.placeholder-arrow {
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+	}
+
+	.arrow-down svg {
+		transform: rotate(90deg);
+	}
+
+	.kvp {
+		display: block;
+	}
+
+	.kvr {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+
+	.k,
+	.c {
+		white-space: nowrap;
+	}
+
+	.c {
+		margin-right: 5px;
+	}
+
+	.v {
+		word-wrap: break-word;
+		flex-grow: 1;
+		margin-left: 0;
+	}
+
+	button {
+		position: fixed;
+		top: 13px;
+		right: 15px;
+		width: 140px;
+		height: 28px;
+		padding: 4px 8px 3px;
+		border: none;
+		border-radius: 3px;
+		font-weight: 600;
+		font-family: 'MonoLisa';
+		cursor: pointer;
+		transition: background-color 0.3s;
+	}
+
+	button::before {
+		display: flex;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		align-items: center;
+		justify-content: center;
+		content: '';
+	}
+
+	button {
+		background-color: #4caf50;
+		color: white;
+	}
+
+	button::before {
+		content: 'Formatted JSON';
+	}
+}
+
+#jsonformatter {
+	[data-view='raw'] button {
+		background-color: #ededed;
+		color: #6a6a6a;
+	}
+
+	[data-view='raw'] button::before {
+		content: 'Raw JSON';
+	}
+}
+
+#jsonformatter {
+	> div:nth-child(1) > span.collapsible > span.opening,
+	span.closing {
+		display: inline-block;
+	}
+
+	span.closing {
+		padding-left: 19px;
+	}
+	span.empty {
+		padding-left: 17px;
+	}
+
+	.content[style*='display: none'] + .closing {
+		padding-left: 0;
+	}
+
+	.content[style*='display: none'] + .closing:before {
+		position: relative;
+		content: '...';
+	}
+
+	.item-count::before {
+		display: none;
+		content: '// ' attr(count);
+		color: #888;
+		font-style: italic;
+	}
+
+	.content[style*='display: none'] + .closing + .item-count::before {
+		display: inline;
+		padding-left: 5px;
+	}
+
+	.color-preview {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin-right: 2px;
+		border: 1px solid #e1e1e1;
+		border-radius: 15px;
+		vertical-align: middle;
+	}
+
+	.timestamp::after {
+		margin-right: 3px;
+		margin-left: 3px;
+		content: ' /* ' attr(data-timestamp-comment) ' */ ';
+		color: #888;
+		font-style: italic;
+	}
+
+	.jsonLintIcon {
+		fill: #6b6b6b;
+		position: fixed;
+		top: 13px;
+		right: 165px;
+		padding: 3px 4px;
+		border: 1px solid #cdcdcd;
+		border-radius: 3px;
+		cursor: pointer;
+		transition: fill 0.3s;
+	}
+
+	[data-view='raw'] .jsonLintIcon {
+		fill: #6a6a6a;
+	}
+
+	.jsonLintIcon:hover {
+		fill: #3a3a3a;
+	}
+
+	.image-wrapper {
+		display: inline-block;
+		position: relative;
+		cursor: pointer;
+	}
+
+	.image-wrapper img {
+		z-index: 10;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		max-width: 200px;
+		max-height: 200px;
+		padding: 8px;
+		transform: translateX(-50%);
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		background-image: linear-gradient(
+				45deg,
+				#fff 25%,
+				transparent 25%,
+				transparent 75%,
+				#fff 75%,
+				#fff
+			),
+			linear-gradient(
+				45deg,
+				#fff 25%,
+				transparent 25%,
+				transparent 75%,
+				#fff 75%,
+				#fff
+			);
+		background-position: 0 0, 10px 10px;
+		background-size: 20px 20px;
+
+		background-color: #dadada;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease;
+	}
+
+	.image-wrapper:hover img {
+		opacity: 1;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	#jsonformatter {
+		background-color: #2b2b2b;
+		color: #e1e1e1;
+
+		.k {
+			color: #ffb86c;
+		}
+
+		.string {
+			color: #50fa7b;
+		}
+
+		.number {
+			color: #8be9fd;
+		}
+
+		.boolean {
+			color: #ff79c6;
+		}
+
+		.null {
+			color: #bd93f9;
+		}
+
+		.content {
+			border-left: 1px dotted #555;
+		}
+
+		.arrow-right path,
+		.arrow-down path {
+			fill: #888;
+		}
+
+		.item-count::before {
+			color: #666;
+		}
+	}
+
+	#jsonformatter[data-view='formatted'] button {
+		background-color: #6272a4;
+		color: #f8f8f2;
+	}
+
+	#jsonformatter[data-view='raw'] button {
+		background-color: #44475a;
+		color: #f8f8f2;
+	}
+}
